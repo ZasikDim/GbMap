@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="Njw-DP-ZkE">
             <objects>
-                <viewController id="Klm-s7-64U" customClass="ViewController" customModule="GBMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" modalPresentationStyle="fullScreen" id="Klm-s7-64U" customClass="MapViewController" customModule="GBMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KcI-OZ-QAl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -63,6 +63,20 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="llM-v8-10X">
+                                <rect key="frame" x="173.5" y="821" width="67" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Выход">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                    </backgroundConfiguration>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="endTrackButtonTapped:" destination="Klm-s7-64U" eventType="touchUpInside" id="5ok-O1-RSc"/>
+                                    <segue destination="kTf-AU-3Ug" kind="unwind" unwindAction="unwindFromMapVCWithUnwindSegue:" id="76d-bA-R8i"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="E4x-NW-PyA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -70,7 +84,9 @@
                             <constraint firstItem="SZh-bC-Hnb" firstAttribute="top" secondItem="E4x-NW-PyA" secondAttribute="top" id="3Uy-vj-zoP"/>
                             <constraint firstItem="E4x-NW-PyA" firstAttribute="bottom" secondItem="SZh-bC-Hnb" secondAttribute="bottom" id="42H-vo-80f"/>
                             <constraint firstItem="Bec-HP-myf" firstAttribute="top" secondItem="E4x-NW-PyA" secondAttribute="top" constant="20" id="92c-7g-6Hg"/>
+                            <constraint firstItem="llM-v8-10X" firstAttribute="centerX" secondItem="KcI-OZ-QAl" secondAttribute="centerX" id="9TE-tC-CfH"/>
                             <constraint firstItem="E4x-NW-PyA" firstAttribute="trailing" secondItem="SZh-bC-Hnb" secondAttribute="trailing" id="F2S-Kc-KzF"/>
+                            <constraint firstItem="E4x-NW-PyA" firstAttribute="bottom" secondItem="llM-v8-10X" secondAttribute="bottom" constant="10" id="LL9-jc-7mY"/>
                             <constraint firstItem="E4x-NW-PyA" firstAttribute="trailing" secondItem="Bec-HP-myf" secondAttribute="trailing" constant="20" id="SIP-ST-4Aj"/>
                             <constraint firstItem="Bec-HP-myf" firstAttribute="leading" secondItem="E4x-NW-PyA" secondAttribute="leading" constant="20" id="Vf1-iV-dbc"/>
                             <constraint firstItem="SZh-bC-Hnb" firstAttribute="leading" secondItem="E4x-NW-PyA" secondAttribute="leading" id="xFk-BE-EHB"/>
@@ -84,6 +100,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="toh-xj-EpH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="kTf-AU-3Ug" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-20.289855072463769" y="230.35714285714283"/>
         </scene>
