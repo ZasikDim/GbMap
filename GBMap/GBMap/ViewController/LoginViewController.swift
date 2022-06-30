@@ -9,8 +9,16 @@ import UIKit
 
 final class LoginViewController: UIViewController {
 
-    @IBOutlet weak var loginTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginTextField: UITextField! {
+        didSet {
+            loginTextField.autocorrectionType = .no
+        }
+    }
+    @IBOutlet weak var passwordTextField: UITextField! {
+        didSet {
+            passwordTextField.isSecureTextEntry = true
+        }
+    }
     @IBOutlet var router: LoginRouter!
     
     private let viewModel = LoginViewModel()
