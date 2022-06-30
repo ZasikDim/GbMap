@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Klm-s7-64U">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Map View Controller-->
+        <scene sceneID="Njw-DP-ZkE">
+            <objects>
+                <viewController storyboardIdentifier="MapViewController" modalPresentationStyle="fullScreen" id="Klm-s7-64U" customClass="MapViewController" customModule="GBMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KcI-OZ-QAl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="SZh-bC-Hnb">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </mapView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Bec-HP-myf">
+                                <rect key="frame" x="20" y="64" width="374" height="109"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V3d-aV-tsc">
+                                        <rect key="frame" x="57.5" y="0.0" width="259.5" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Отобразить предыдущий маршрут">
+                                            <backgroundConfiguration key="background">
+                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </backgroundConfiguration>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="previousTrackButtonTapped:" destination="Klm-s7-64U" eventType="touchUpInside" id="sEN-5o-RFG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ecd-X7-H9L">
+                                        <rect key="frame" x="111" y="39" width="152.5" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Начать новый трек">
+                                            <backgroundConfiguration key="background">
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                            </backgroundConfiguration>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="newTrackButtonTapped:" destination="Klm-s7-64U" eventType="touchUpInside" id="Eoo-lS-MYf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="peq-86-9LU">
+                                        <rect key="frame" x="122.5" y="78" width="129" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Закончить трек">
+                                            <backgroundConfiguration key="background">
+                                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                            </backgroundConfiguration>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="endTrackButtonTapped:" destination="Klm-s7-64U" eventType="touchUpInside" id="pbe-8y-waL"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="llM-v8-10X">
+                                <rect key="frame" x="173.5" y="821" width="67" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Выход">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                    </backgroundConfiguration>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="endTrackButtonTapped:" destination="Klm-s7-64U" eventType="touchUpInside" id="5ok-O1-RSc"/>
+                                    <segue destination="kTf-AU-3Ug" kind="unwind" unwindAction="unwindFromMapVCWithUnwindSegue:" id="76d-bA-R8i"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="E4x-NW-PyA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="SZh-bC-Hnb" firstAttribute="top" secondItem="E4x-NW-PyA" secondAttribute="top" id="3Uy-vj-zoP"/>
+                            <constraint firstItem="E4x-NW-PyA" firstAttribute="bottom" secondItem="SZh-bC-Hnb" secondAttribute="bottom" id="42H-vo-80f"/>
+                            <constraint firstItem="Bec-HP-myf" firstAttribute="top" secondItem="E4x-NW-PyA" secondAttribute="top" constant="20" id="92c-7g-6Hg"/>
+                            <constraint firstItem="llM-v8-10X" firstAttribute="centerX" secondItem="KcI-OZ-QAl" secondAttribute="centerX" id="9TE-tC-CfH"/>
+                            <constraint firstItem="E4x-NW-PyA" firstAttribute="trailing" secondItem="SZh-bC-Hnb" secondAttribute="trailing" id="F2S-Kc-KzF"/>
+                            <constraint firstItem="E4x-NW-PyA" firstAttribute="bottom" secondItem="llM-v8-10X" secondAttribute="bottom" constant="10" id="LL9-jc-7mY"/>
+                            <constraint firstItem="E4x-NW-PyA" firstAttribute="trailing" secondItem="Bec-HP-myf" secondAttribute="trailing" constant="20" id="SIP-ST-4Aj"/>
+                            <constraint firstItem="Bec-HP-myf" firstAttribute="leading" secondItem="E4x-NW-PyA" secondAttribute="leading" constant="20" id="Vf1-iV-dbc"/>
+                            <constraint firstItem="SZh-bC-Hnb" firstAttribute="leading" secondItem="E4x-NW-PyA" secondAttribute="leading" id="xFk-BE-EHB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="endTrackButton" destination="peq-86-9LU" id="azh-zB-eQv"/>
+                        <outlet property="mapView" destination="SZh-bC-Hnb" id="Obf-vD-bw5"/>
+                        <outlet property="newTrackButton" destination="Ecd-X7-H9L" id="pYD-Zq-jba"/>
+                        <outlet property="previousTrackButton" destination="V3d-aV-tsc" id="J9s-VS-rYk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="toh-xj-EpH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="kTf-AU-3Ug" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-20.289855072463769" y="230.35714285714283"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

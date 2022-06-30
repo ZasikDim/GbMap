@@ -25,7 +25,7 @@ class RealmManager: ObservableObject {
             print("Error opening Realm", error)
         }
     }
-
+    // MARK: - Track
     func addTrack(points: points) {
         if let localRealm = localRealm {
             do {
@@ -65,7 +65,61 @@ class RealmManager: ObservableObject {
             }
         }
     }
+    // MARK: - User
+    func checkLoginAndPasword(login: String, password: String) -> Bool {
+        guard let user = findUserInRealm(login: login) else { return false }
+        if user.password == password {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    func addUser(login: String, password: String) {
+        if let user = findUserInRealm(login: login) {
+            changeUserPassword(user: user, password: password)
+        } else {
+            addNewUserToRealm(login: login, password: password)
+        }
+    }
     
+    private func findUserInRealm(login: String) -> User? {
+        if let user = localRealm?.object(ofType: User.self, forPrimaryKey: login) {
+            return user
+        } else {
+            return nil
+        }
+    }
+    
+    private func addNewUserToRealm(login: String, password: String) {
+        if let localRealm = localRealm {
+            do {
+                try localRealm.write {
+                    let user = User()
+                    user.login = login
+                    user.password = password
+                    localRealm.add(user)
+                }
+            } catch {
+                print("Error adding task to Realm: \(error)")
+            }
+        }
+    }
+    
+    private func changeUserPassword(user: User, password: String) {
+        if let localRealm = localRealm {
+            do {
+                try localRealm.write {
+                    user.password = password
+                    localRealm.add(user, update: .modified)
+                }
+            } catch {
+                print("Error adding task to Realm: \(error)")
+            }
+        }
+    }
+    
+    //MARK: -Transforming
     func transformArrayToList(array: points) -> List<LocationCoordinateModel> {
         let result = List<LocationCoordinateModel>()
         for entry in array {

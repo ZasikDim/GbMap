@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MapViewController.swift
 //  GBMap
 //
 //  Created by Dmitry Zasenko on 13.06.22.
@@ -11,7 +11,7 @@ import CoreLocation
 
 typealias points = [CLLocationCoordinate2D]
 
-class ViewController: UIViewController {
+class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView! {
         didSet {
@@ -103,7 +103,7 @@ class ViewController: UIViewController {
     }
 }
 // MARK: -MKMapViewDelegate
-extension ViewController: MKMapViewDelegate {
+extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if let polyline = overlay as? MKPolyline {
             let renderer = MKPolylineRenderer(polyline: polyline)
@@ -115,7 +115,7 @@ extension ViewController: MKMapViewDelegate {
     }
 }
 // MARK: -CLLocationManagerDelegate
-extension ViewController: CLLocationManagerDelegate {
+extension MapViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let userLocation = locations.last else { return }
