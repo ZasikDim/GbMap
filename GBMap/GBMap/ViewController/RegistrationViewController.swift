@@ -20,7 +20,7 @@ class RegistrationViewController: UIViewController {
         }
     }
     
-    let realmManager = RealmManager()
+    private let realmManager = RealmManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,5 +33,10 @@ class RegistrationViewController: UIViewController {
             let password = passwordTextField.text
         else { return }
         realmManager.addUser(login: login, password: password)
+    }
+    @IBAction func cancleButtonTapped(_ sender: UIButton) {
+        loginTextField.text = ""
+        passwordTextField.text = ""
+        performSegue(withIdentifier: "fromRegistrationToLoginVC", sender: self)
     }
 }
