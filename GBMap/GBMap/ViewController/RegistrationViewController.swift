@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class RegistrationViewController: UIViewController {
 
@@ -19,11 +21,13 @@ class RegistrationViewController: UIViewController {
             passwordTextField.isSecureTextEntry = true
         }
     }
+    @IBOutlet weak var registrationButton: UIButton!
     
     private let realmManager = RealmManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureLoginBindings() 
 
     }
     
@@ -38,5 +42,19 @@ class RegistrationViewController: UIViewController {
         loginTextField.text = ""
         passwordTextField.text = ""
         performSegue(withIdentifier: "fromRegistrationToLoginVC", sender: self)
+    }
+    
+    func configureLoginBindings() {
+        Observable
+        .combineLatest(
+            loginTextField.rx.text,
+            passwordTextField.rx.text
+        )
+        .map { login, password in
+            return !(login ?? "").isEmpty && (password ?? "").count >= 5
+        }
+        .bind { [weak registrationButton] inputFilled in
+            registrationButton?.isEnabled = inputFilled
+        }
     }
 }

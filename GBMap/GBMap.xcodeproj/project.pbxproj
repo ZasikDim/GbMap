@@ -15,6 +15,12 @@
 		0F134030286F1ABB00024054 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 0F13402F286F1ABB00024054 /* RxCocoa */; };
 		0F134032286F1ABB00024054 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0F134031286F1ABB00024054 /* RxSwift */; };
 		0F134035286F325C00024054 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F134034286F325C00024054 /* LocationManager.swift */; };
+		0F3241CD2874814200BBCD05 /* configureLocationManager.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F3241CC2874814200BBCD05 /* configureLocationManager.png */; };
+		0F3241CF2874818A00BBCD05 /* Realm addTrack.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F3241CE2874818A00BBCD05 /* Realm addTrack.png */; };
+		0F3241D12874819A00BBCD05 /* realm_deleteTrack.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F3241D02874819A00BBCD05 /* realm_deleteTrack.png */; };
+		0F3241D3287481F100BBCD05 /* realm_checkLoginAndPasword.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F3241D2287481F100BBCD05 /* realm_checkLoginAndPasword.png */; };
+		0F3241D5287483EA00BBCD05 /* previousTrackButtonTapped.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F3241D4287483EA00BBCD05 /* previousTrackButtonTapped.png */; };
+		0F3241D72874842C00BBCD05 /* Leaks.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F3241D62874842C00BBCD05 /* Leaks.png */; };
 		0F635567286C5F7000A02CBC /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F635566286C5F7000A02CBC /* RegistrationViewController.swift */; };
 		0FD53E542857421400B0E949 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD53E532857421400B0E949 /* AppDelegate.swift */; };
 		0FD53E562857421400B0E949 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD53E552857421400B0E949 /* SceneDelegate.swift */; };
@@ -35,6 +41,12 @@
 		0F05AE93286214B9003D972A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		0F05AE95286229BB003D972A /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
 		0F134034286F325C00024054 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		0F3241CC2874814200BBCD05 /* configureLocationManager.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = configureLocationManager.png; sourceTree = "<group>"; };
+		0F3241CE2874818A00BBCD05 /* Realm addTrack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Realm addTrack.png"; sourceTree = "<group>"; };
+		0F3241D02874819A00BBCD05 /* realm_deleteTrack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = realm_deleteTrack.png; sourceTree = "<group>"; };
+		0F3241D2287481F100BBCD05 /* realm_checkLoginAndPasword.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = realm_checkLoginAndPasword.png; sourceTree = "<group>"; };
+		0F3241D4287483EA00BBCD05 /* previousTrackButtonTapped.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = previousTrackButtonTapped.png; sourceTree = "<group>"; };
+		0F3241D62874842C00BBCD05 /* Leaks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Leaks.png; sourceTree = "<group>"; };
 		0F635566286C5F7000A02CBC /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		0FD53E502857421400B0E949 /* GBMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GBMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FD53E532857421400B0E949 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +94,20 @@
 			path = BusinessLogic;
 			sourceTree = "<group>";
 		};
+		0F3241CB287480EF00BBCD05 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				0F3241D62874842C00BBCD05 /* Leaks.png */,
+				0F3241CC2874814200BBCD05 /* configureLocationManager.png */,
+				0F3241CE2874818A00BBCD05 /* Realm addTrack.png */,
+				0F3241D02874819A00BBCD05 /* realm_deleteTrack.png */,
+				0F3241D2287481F100BBCD05 /* realm_checkLoginAndPasword.png */,
+				0F3241D4287483EA00BBCD05 /* previousTrackButtonTapped.png */,
+			);
+			name = Screens;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		0FD53E472857421400B0E949 = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +137,7 @@
 				0FE7F480286C78BA008E8E9D /* Storyboard */,
 				0FE7F47F286C7875008E8E9D /* Storyboards */,
 				0FD53E5C2857421600B0E949 /* Assets.xcassets */,
+				0F3241CB287480EF00BBCD05 /* Screens */,
 				0FD53E612857421600B0E949 /* Info.plist */,
 			);
 			path = GBMap;
@@ -235,9 +262,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F3241D72874842C00BBCD05 /* Leaks.png in Resources */,
 				0F05AE912860A876003D972A /* Auth.storyboard in Resources */,
+				0F3241CD2874814200BBCD05 /* configureLocationManager.png in Resources */,
+				0F3241D3287481F100BBCD05 /* realm_checkLoginAndPasword.png in Resources */,
 				0FD53E5D2857421600B0E949 /* Assets.xcassets in Resources */,
+				0F3241D5287483EA00BBCD05 /* previousTrackButtonTapped.png in Resources */,
+				0F3241D12874819A00BBCD05 /* realm_deleteTrack.png in Resources */,
 				0FD53E5B2857421400B0E949 /* Main.storyboard in Resources */,
+				0F3241CF2874818A00BBCD05 /* Realm addTrack.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

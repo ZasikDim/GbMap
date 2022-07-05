@@ -223,6 +223,7 @@
                     <connections>
                         <outlet property="loginTextField" destination="e0r-Tg-HE1" id="all-c4-cXy"/>
                         <outlet property="passwordTextField" destination="JQH-cS-lsa" id="zGk-yL-ZqB"/>
+                        <outlet property="registrationButton" destination="rdz-HE-0vm" id="OOm-CJ-QiO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wQs-2J-Aak" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
