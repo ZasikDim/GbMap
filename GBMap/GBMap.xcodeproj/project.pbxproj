@@ -12,6 +12,9 @@
 		0F05AE912860A876003D972A /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F05AE902860A876003D972A /* Auth.storyboard */; };
 		0F05AE94286214B9003D972A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F05AE93286214B9003D972A /* LoginViewModel.swift */; };
 		0F05AE96286229BB003D972A /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F05AE95286229BB003D972A /* BaseRouter.swift */; };
+		0F134030286F1ABB00024054 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 0F13402F286F1ABB00024054 /* RxCocoa */; };
+		0F134032286F1ABB00024054 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0F134031286F1ABB00024054 /* RxSwift */; };
+		0F134035286F325C00024054 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F134034286F325C00024054 /* LocationManager.swift */; };
 		0F635567286C5F7000A02CBC /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F635566286C5F7000A02CBC /* RegistrationViewController.swift */; };
 		0FD53E542857421400B0E949 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD53E532857421400B0E949 /* AppDelegate.swift */; };
 		0FD53E562857421400B0E949 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD53E552857421400B0E949 /* SceneDelegate.swift */; };
@@ -31,6 +34,7 @@
 		0F05AE902860A876003D972A /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		0F05AE93286214B9003D972A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		0F05AE95286229BB003D972A /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
+		0F134034286F325C00024054 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		0F635566286C5F7000A02CBC /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		0FD53E502857421400B0E949 /* GBMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GBMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FD53E532857421400B0E949 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +55,8 @@
 			files = (
 				0FE7BD03285A2BD000E801E8 /* RealmSwift in Frameworks */,
 				0FE7BD01285A2BD000E801E8 /* Realm in Frameworks */,
+				0F134032286F1ABB00024054 /* RxSwift in Frameworks */,
+				0F134030286F1ABB00024054 /* RxCocoa in Frameworks */,
 				0FD53E69285745F800B0E949 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -64,6 +70,16 @@
 				0F05AE93286214B9003D972A /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0F134033286F31DA00024054 /* BusinessLogic */ = {
+			isa = PBXGroup;
+			children = (
+				0F05AE95286229BB003D972A /* BaseRouter.swift */,
+				0F134034286F325C00024054 /* LocationManager.swift */,
+				0FE2F277285CCFD8004AC98F /* Realm */,
+			);
+			path = BusinessLogic;
 			sourceTree = "<group>";
 		};
 		0FD53E472857421400B0E949 = {
@@ -88,11 +104,10 @@
 			children = (
 				0FD53E532857421400B0E949 /* AppDelegate.swift */,
 				0FD53E552857421400B0E949 /* SceneDelegate.swift */,
-				0FE2F277285CCFD8004AC98F /* Realm */,
+				0F134033286F31DA00024054 /* BusinessLogic */,
 				0FE2F276285CCFC7004AC98F /* Model */,
 				0F05AE9228621499003D972A /* ViewModel */,
 				0FE2F278285CCFE4004AC98F /* ViewController */,
-				0F05AE95286229BB003D972A /* BaseRouter.swift */,
 				0FE7F480286C78BA008E8E9D /* Storyboard */,
 				0FE7F47F286C7875008E8E9D /* Storyboards */,
 				0FD53E5C2857421600B0E949 /* Assets.xcassets */,
@@ -171,6 +186,8 @@
 			packageProductDependencies = (
 				0FE7BD00285A2BD000E801E8 /* Realm */,
 				0FE7BD02285A2BD000E801E8 /* RealmSwift */,
+				0F13402F286F1ABB00024054 /* RxCocoa */,
+				0F134031286F1ABB00024054 /* RxSwift */,
 			);
 			productName = GBMap;
 			productReference = 0FD53E502857421400B0E949 /* GBMap.app */;
@@ -202,6 +219,7 @@
 			mainGroup = 0FD53E472857421400B0E949;
 			packageReferences = (
 				0FE7BCFF285A2BD000E801E8 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				0F13402E286F1ABB00024054 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 0FD53E512857421400B0E949 /* Products */;
 			projectDirPath = "";
@@ -233,6 +251,7 @@
 				0FD53E582857421400B0E949 /* MapViewController.swift in Sources */,
 				0F05AE96286229BB003D972A /* BaseRouter.swift in Sources */,
 				0FE7BD05285A2BE200E801E8 /* RealmManager.swift in Sources */,
+				0F134035286F325C00024054 /* LocationManager.swift in Sources */,
 				0F05AE8D2860A734003D972A /* User.swift in Sources */,
 				0F635567286C5F7000A02CBC /* RegistrationViewController.swift in Sources */,
 				0F05AE8F2860A84C003D972A /* LoginViewController.swift in Sources */,
@@ -456,6 +475,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0F13402E286F1ABB00024054 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 6.5.0;
+			};
+		};
 		0FE7BCFF285A2BD000E801E8 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -467,6 +494,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0F13402F286F1ABB00024054 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F13402E286F1ABB00024054 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		0F134031286F1ABB00024054 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F13402E286F1ABB00024054 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
 		0FE7BD00285A2BD000E801E8 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0FE7BCFF285A2BD000E801E8 /* XCRemoteSwiftPackageReference "realm-swift" */;

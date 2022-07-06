@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class LoginViewController: UIViewController {
 
+    @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var loginTextField: UITextField! {
         didSet {
             loginTextField.autocorrectionType = .no
@@ -25,6 +28,7 @@ final class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureLoginBindings()
     }
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
@@ -58,6 +62,19 @@ final class LoginViewController: UIViewController {
         passwordTextField.text = ""
     }
     
+    func configureLoginBindings() {
+        Observable
+        .combineLatest(
+            loginTextField.rx.text,
+            passwordTextField.rx.text
+        )
+        .map { login, password in
+            return !(login ?? "").isEmpty && (password ?? "").count >= 5
+        }
+        .bind { [weak loginButton] inputFilled in
+            loginButton?.isEnabled = inputFilled
+        }
+    }
 }
 
 final class LoginRouter: BaseRouter {

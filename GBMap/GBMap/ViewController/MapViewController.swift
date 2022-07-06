@@ -7,7 +7,6 @@
 
 import UIKit
 import MapKit
-import CoreLocation
 
 typealias points = [CLLocationCoordinate2D]
 
@@ -24,7 +23,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var previousTrackButton: UIButton!
     
     private let realmManager = RealmManager()
-    private let locationManager = CLLocationManager()
+    private let locationManager = LocationManager.schared
     private let initialLocation =  CLLocation(latitude: 55.753215, longitude: 37.622504)
 //    private var routePointsPins: [MKPointAnnotation] = []
     private var routePoints: [CLLocationCoordinate2D] = []
@@ -67,12 +66,21 @@ class MapViewController: UIViewController {
         }
     }
     private func configureLocationManager() {
-        locationManager.delegate = self
-        locationManager.allowsBackgroundLocationUpdates = true
-        locationManager.pausesLocationUpdatesAutomatically = false
-        locationManager.startMonitoringSignificantLocationChanges()
-        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        locationManager.requestAlwaysAuthorization()
+        locationManager
+            .location
+            .asObservable()
+            .bind { [weak self] location in
+                guard let self = self else {return}
+                guard let userLocation = location else { return }
+                self.routePoints.append(userLocation.coordinate)
+                let line = MKPolyline(coordinates: self.routePoints, count: self.routePoints.count)
+                self.mapView.addOverlay(line)
+                //        let sourceAnnotation = MKPointAnnotation()
+                //        sourceAnnotation.coordinate = userLocation.coordinate
+                //        routePointsPins.append(sourceAnnotation)
+                //        self.mapView.showAnnotations(routePointsPins, animated: true )
+                self.mapView.setCenter(userLocation.coordinate, animated: true)
+            }
     }
     private func deleteOverlay() {
         routePoints = []
@@ -112,25 +120,6 @@ extension MapViewController: MKMapViewDelegate {
             return renderer
         }
         return MKOverlayRenderer(overlay: overlay)
-    }
-}
-// MARK: -CLLocationManagerDelegate
-extension MapViewController: CLLocationManagerDelegate {
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let userLocation = locations.last else { return }
-        routePoints.append(userLocation.coordinate)
-        let line = MKPolyline(coordinates: routePoints, count: routePoints.count)
-        mapView.addOverlay(line)
-//        let sourceAnnotation = MKPointAnnotation()
-//        sourceAnnotation.coordinate = userLocation.coordinate
-//        routePointsPins.append(sourceAnnotation)
-//        self.mapView.showAnnotations(routePointsPins, animated: true )
-        self.mapView.setCenter(userLocation.coordinate, animated: true)
-    }
-
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
     }
 }
 // MARK: -extension MKMapView

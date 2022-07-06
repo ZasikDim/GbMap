@@ -106,6 +106,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="loginButton" destination="mYJ-PF-EaZ" id="3NH-Rb-Wut"/>
                         <outlet property="loginTextField" destination="hYQ-cg-AGA" id="VHO-3U-F4y"/>
                         <outlet property="passwordTextField" destination="S0U-XV-dUk" id="HOi-ZN-Hwb"/>
                         <outlet property="router" destination="qXR-Qu-o3P" id="Peh-hr-nul"/>
@@ -131,7 +132,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yQo-AH-zbg">
-                                <rect key="frame" x="82" y="350.5" width="250" height="195"/>
+                                <rect key="frame" x="82" y="350" width="250" height="196"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="логин:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ekr-NI-i4C">
                                         <rect key="frame" x="20" y="20" width="210" height="16"/>
@@ -156,21 +157,34 @@
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="lHG-tJ-zuR">
-                                        <rect key="frame" x="20" y="145" width="210" height="30"/>
+                                        <rect key="frame" x="20" y="145" width="210" height="31"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdz-HE-0vm">
-                                                <rect key="frame" x="0.0" y="0.0" width="210" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="137.5" height="31"/>
                                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Зарегистрироваться">
+                                                <buttonConfiguration key="configuration" style="filled" title="Регистрация">
                                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="13"/>
-                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <color key="baseBackgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="baseBackgroundColor" systemColor="systemYellowColor"/>
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="registrationButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="1c0-m0-LbB"/>
                                                     <action selector="registrationButtonTapped:" destination="t6u-jD-TKX" eventType="touchUpInside" id="Fwr-dX-Z7J"/>
                                                     <segue destination="E5S-a9-zBD" kind="unwind" identifier="fromRegistrationToLoginVC" unwindAction="unwindFromRegistrationVCWithUnwindSegue:" id="qO3-9O-jcj"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZI-vy-y7V">
+                                                <rect key="frame" x="152.5" y="0.0" width="57.5" height="31"/>
+                                                <color key="tintColor" systemColor="systemYellowColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" image="xmark" catalog="system" title="">
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="baseBackgroundColor" systemColor="systemRedColor"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="cancleButtonTapped:" destination="t6u-jD-TKX" eventType="touchUpInside" id="Mj3-Rc-vRG"/>
+                                                    <action selector="loginButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="z6e-TO-bAs"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -228,11 +242,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemMintColor">
             <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
